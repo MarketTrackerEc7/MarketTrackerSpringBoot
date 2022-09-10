@@ -44,16 +44,22 @@
           <div
             class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
           >
-            <ul class="navbar-nav flex-grow-1">
-              <li class="nav-item">
-                <a class="nav-link text-light" href="index.html"
-                  >Pagina inicial</a
-                >
+            <div class = "row justify-content-flex-end"> 
+			 <ul class="navbar-nav flex-grow-1">              
+			  <li class="nav-item">
+                <a class="nav-link text-light" href="index.html">Pagina inicial</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-light" href="sobre.html">Sobre</a>
-              </li>
-            </ul>
+              </li>			  
+			  <li class="nav-item">
+				<a class="nav-link text-light" href="login.html">Login</a>
+              </li>		  
+			  <li class="nav-item">
+                <a class="nav-link text-light" href="cadastroUsuario.html">Cadastre-se</a>
+              </li>			  
+             </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -61,7 +67,7 @@
 
     <div class="container-fluid body-content">
       <div class="container">
-        <h2>Market Tracker - Faça login ou cadastre-se</h2>
+        <h2>Market Tracker - Faça login</h2>
 
         <br />
         <br />
@@ -98,10 +104,13 @@
         </form>
         <br />
 
-        <form action="cadastroUsuario" method="post">
+        <!--<form action="cadastroUsuario" method="post">
           <button type="button" class="btn btn-secondary btn-lg">
             Cadastrar-se
-          </button>
+          </button>-->
+		<div class="text-left">                  
+				  <p>Não tem uma conta? <a href="cadastroUsuario.html">Cadastre-se</a>.</p>
+        </div>
         </form>
       </div>
     </div>
