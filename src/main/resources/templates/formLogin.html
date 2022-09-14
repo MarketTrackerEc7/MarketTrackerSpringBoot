@@ -67,17 +67,71 @@
 
     <div class="container-fluid body-content">
       <div class="container">
-        <h2>Market Tracker</h2>
-        <br />
-        <h6>Sobre sobre sobre.....</h6>
+        <h2>Market Tracker - Faça login</h2>
 
         <br />
         <br />
         <br />
 
+        <form action="Login" method="post">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Usuário</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="usuario"
+              placeholder="name"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Senha</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="senha"
+              placeholder="your password"
+            />
+          </div>
+
+          <button type="button" onclick="redirect();" class="btn btn-secondary btn-lg">
+            Fazer login
+          </button>
+		   <script language = "Javascript">
+			function redirect()
+			{
+				let usuarioLogin = document.getElementById("usuario").value;
+				let senhaLogin = document.getElementById("senha").value;
+				if (usuarioLogin == "Admin" && senhaLogin == "Admin")
+				{
+					location.href = 'buscaProduto.html';
+				}
+				else if(usuarioLogin != "Admin")
+				{
+					alert("usuário não existe");
+				}
+				else if(senhaLogin != "Admin")
+				{
+					alert("senha não existe");
+				}
+			}
+		   </script>
+		  
+        </form>
         <br />
-        <br />
-        <br />
+
+        <!--<form action="formCadastroUsuario" method="post">
+          <button type="button" class="btn btn-secondary btn-lg">
+            Cadastrar-se
+          </button>-->
+		<div class="text-left">                  
+				  <p>Não tem uma conta? <a href="/cadastrarUsuario">Cadastre-se</a>.</p>
+        </div>
+        </form>
       </div>
     </div>
 

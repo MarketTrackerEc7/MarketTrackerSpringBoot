@@ -4,11 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class UsuarioController {
+public class loginController {
 	
-	@RequestMapping("/cadastrarUsuario")
+	@RequestMapping("/login")
 	public String form() {
-		return "formCadastroUsuario";
+		return "formLogin";
 	}
+
 
 }
