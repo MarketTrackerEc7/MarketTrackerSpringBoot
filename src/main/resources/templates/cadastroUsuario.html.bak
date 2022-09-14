@@ -67,22 +67,24 @@
 
     <div class="container-fluid body-content">
       <div class="container">
-        <h2>Market Tracker - Faça login</h2>
+        <h2>Market Tracker - Cadastro</h2>
 
         <br />
         <br />
         <br />
-
-        <form action="Login" method="post">
+	
+		<!--onsubmit="download(cadastro.txt, this['text'].value)"-->
+			
+        <form  action="cadastrarUsuario" method="post">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"
               >Usuário</label
             >
             <input
-              type="email"
+              type="text"
               class="form-control"
-              id="usuario"
-              placeholder="name"
+              id="Usuario"
+              placeholder="Seu usuário"
             />
           </div>
 
@@ -93,45 +95,88 @@
             <input
               type="password"
               class="form-control"
-              id="senha"
-              placeholder="your password"
+              id="Senha1"
+              placeholder="Sua senha"
             />
           </div>
 
-          <button type="button" onclick="redirect();" class="btn btn-secondary btn-lg">
-            Fazer login
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Confirmar senha </label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="Senha2"
+              placeholder="Confirme sua senha"
+            />
+          </div>			
+		  
+          <button type="button" onclick="getInputValue();" class="btn btn-secondary btn-lg">
+            Cadastrar
           </button>
-		   <script language = "Javascript">
-			function redirect()
-			{
-				let usuarioLogin = document.getElementById("usuario").value;
-				let senhaLogin = document.getElementById("senha").value;
-				if (usuarioLogin == "Admin" && senhaLogin == "Admin")
+		  
+		  <script language = "Javascript">
+			function getInputValue()
+			{				
+			
+				let usuario = document.getElementById("Usuario").value;			
+				let senha1 = document.getElementById("Senha1").value;				
+				let senha2 = document.getElementById("Senha2").value;				
+				
+				if(usuario == "")
 				{
-					location.href = 'buscaProduto.html';
+					alert("Preencha o campo Usuário");
 				}
-				else if(usuarioLogin != "Admin")
+				else if(senha1 == "")
 				{
-					alert("usuário não existe");
+					alert("Preencha o campo Senha");
 				}
-				else if(senhaLogin != "Admin")
+				else if(senha2 == "")
 				{
-					alert("senha não existe");
+					alert("Preencha o campo Confirmar senha");
 				}
+				else if(senha1 != senha2)
+				{
+					alert("As senhas digitadas não são iguais");
+					document.getElementById("Senha1").value = '';
+					document.getElementById("Senha2").value = '';
+				}
+				else
+				{
+					alert("cadastro realizado com sucesso");
+					<!--let cadastro = (usuario + '|' + senha1).toString();-->
+					document.getElementById("Usuario").value = '';
+					document.getElementById("Senha1").value = '';
+					document.getElementById("Senha2").value = '';					
+					<!--return cadastro;-->
+				}				
 			}
-		   </script>
+			
+			<!--function download(text)
+			{
+				var pom = document.createElement('a');
+				pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + 
+
+				encodeURIComponent(text));
+				pom.setAttribute('download', "Cadastro.txt");
+
+				pom.style.display = 'none';
+				document.body.appendChild(pom);
+
+				pom.click();
+
+				document.body.removeChild(pom);
+			}
+			-->
+		  </script>
 		  
         </form>
         <br />
-
-        <!--<form action="cadastroUsuario" method="post">
-          <button type="button" class="btn btn-secondary btn-lg">
-            Cadastrar-se
-          </button>-->
-		<div class="text-left">                  
-				  <p>Não tem uma conta? <a href="cadastroUsuario.html">Cadastre-se</a>.</p>
+		
+        <div class="text-left">                  
+		  <p>Já tem uma conta? <a href="login.html">Login</a>.</p>
         </div>
-        </form>
       </div>
     </div>
 

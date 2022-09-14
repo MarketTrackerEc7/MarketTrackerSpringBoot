@@ -108,7 +108,7 @@
 				let senhaLogin = document.getElementById("senha").value;
 				if (usuarioLogin == "Admin" && senhaLogin == "Admin")
 				{
-					location.href = 'buscaProduto.html';
+					location.href = 'sobre.html';
 				}
 				else if(usuarioLogin != "Admin")
 				{

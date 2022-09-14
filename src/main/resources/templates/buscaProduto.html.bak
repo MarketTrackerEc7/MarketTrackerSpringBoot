@@ -45,19 +45,13 @@
             class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
           >
             <div class = "row justify-content-flex-end"> 
-			 <ul class="navbar-nav flex-grow-1">              
+			 <ul class="navbar-nav flex-grow-1">	
+			  <li class="label">
+				<a class="nav-link text-light">Usuário logado: Admin</a>
+              </li>				 
 			  <li class="nav-item">
-                <a class="nav-link text-light" href="index.html">Pagina inicial</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light" href="sobre.html">Sobre</a>
-              </li>			  
-			  <li class="nav-item">
-				<a class="nav-link text-light" href="login.html">Login</a>
-              </li>		  
-			  <li class="nav-item">
-                <a class="nav-link text-light" href="cadastroUsuario.html">Cadastre-se</a>
-              </li>			  
+				<a class="nav-link text-light" href="login.html">Log out</a>
+              </li>			  		  
              </ul>
             </div>
           </div>
@@ -67,7 +61,7 @@
 
     <div class="container-fluid body-content">
       <div class="container">
-        <h2>Market Tracker - Faça login</h2>
+        <h2>Market Tracker - Busque um produto</h2>
 
         <br />
         <br />
@@ -75,21 +69,21 @@
 
         <form action="Login" method="post">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Usuário</label
-            >
+            <label for="exampleFormControlInput1" class="form-label">
+			Produto
+			</label>
             <input
-              type="email"
+              type="text"
               class="form-control"
-              id="usuario"
-              placeholder="name"
+              id="produto"
+              placeholder="Nome do produto"
             />
           </div>
-
+		<!--
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Senha</label
-            >
+            <label for="exampleFormControlInput1" class="form-label">
+			Senha
+			</label>
             <input
               type="password"
               class="form-control"
@@ -97,27 +91,20 @@
               placeholder="your password"
             />
           </div>
-
-          <button type="button" onclick="redirect();" class="btn btn-secondary btn-lg">
-            Fazer login
+		-->
+          <button type="button" onclick="buscaProduto();" class="btn btn-secondary btn-lg">
+            Buscar
           </button>
 		   <script language = "Javascript">
-			function redirect()
+			function buscaProduto()
 			{
-				let usuarioLogin = document.getElementById("usuario").value;
-				let senhaLogin = document.getElementById("senha").value;
-				if (usuarioLogin == "Admin" && senhaLogin == "Admin")
-				{
-					location.href = 'buscaProduto.html';
+				let nomeProduto = document.getElementById("produto").value;
+				
+				if (nomeProduto == "")
+				{	
+					alert("Nome do produto não fornecido");
 				}
-				else if(usuarioLogin != "Admin")
-				{
-					alert("usuário não existe");
-				}
-				else if(senhaLogin != "Admin")
-				{
-					alert("senha não existe");
-				}
+				
 			}
 		   </script>
 		  
@@ -127,10 +114,7 @@
         <!--<form action="cadastroUsuario" method="post">
           <button type="button" class="btn btn-secondary btn-lg">
             Cadastrar-se
-          </button>-->
-		<div class="text-left">                  
-				  <p>Não tem uma conta? <a href="cadastroUsuario.html">Cadastre-se</a>.</p>
-        </div>
+          </button>-->		
         </form>
       </div>
     </div>

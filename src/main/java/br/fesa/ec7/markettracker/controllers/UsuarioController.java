@@ -8,7 +8,7 @@ public class UsuarioController {
 	
 	@RequestMapping("/cadastrarUsuario")
 	public String form() {
-		return "cadastroUsuario";
+		return "formUsuario";
 	}
 
 }

@@ -47,16 +47,16 @@
             <div class = "row justify-content-flex-end"> 
 			 <ul class="navbar-nav flex-grow-1">              
 			  <li class="nav-item">
-                <a class="nav-link text-light" href="/">Pagina inicial</a>
+                <a class="nav-link text-light" href="index.html">Pagina inicial</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="sobre">Sobre</a>
+                <a class="nav-link text-light" href="sobre.html">Sobre</a>
               </li>			  
 			  <li class="nav-item">
-				<a class="nav-link text-light" href="login">Login</a>
+				<a class="nav-link text-light" href="login.html">Login</a>
               </li>		  
 			  <li class="nav-item">
-                <a class="nav-link text-light" href="cadastrarUsuario">Cadastre-se</a>
+                <a class="nav-link text-light" href="cadastroUsuario.html">Cadastre-se</a>
               </li>			  
              </ul>
             </div>
@@ -72,47 +72,106 @@
         <br />
         <br />
         <br />
-
-        <form action="cadastrarUsuario" method="post">
+	
+		<!--onsubmit="download(cadastro.txt, this['text'].value)"-->
+			
+        <form  action="cadastrarUsuario" method="post">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"
-              >Nome</label
+              >Usuário</label
             >
             <input
               type="text"
               class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="name@example.com"
+              id="Usuario"
+              placeholder="Seu usuário"
             />
           </div>
 
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"
-              >E-mail</label
-            >
-            <input
-              type="email"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="your password"
-            />
-          </div>
-
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Senha acesso</label
+              >Senha</label
             >
             <input
               type="password"
               class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="your password"
+              id="Senha1"
+              placeholder="Sua senha"
             />
           </div>
 
-          <button type="button" class="btn btn-secondary btn-lg">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Confirmar senha </label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="Senha2"
+              placeholder="Confirme sua senha"
+            />
+          </div>			
+		  
+          <button type="button" onclick="getInputValue();" class="btn btn-secondary btn-lg">
             Cadastrar
           </button>
+		  
+		  <script language = "Javascript">
+			function getInputValue()
+			{				
+			
+				let usuario = document.getElementById("Usuario").value;			
+				let senha1 = document.getElementById("Senha1").value;				
+				let senha2 = document.getElementById("Senha2").value;				
+				
+				if(usuario == "")
+				{
+					alert("Preencha o campo Usuário");
+				}
+				else if(senha1 == "")
+				{
+					alert("Preencha o campo Senha");
+				}
+				else if(senha2 == "")
+				{
+					alert("Preencha o campo Confirmar senha");
+				}
+				else if(senha1 != senha2)
+				{
+					alert("As senhas digitadas não são iguais");
+					document.getElementById("Senha1").value = '';
+					document.getElementById("Senha2").value = '';
+				}
+				else
+				{
+					alert("cadastro realizado com sucesso");
+					<!--let cadastro = (usuario + '|' + senha1).toString();-->
+					document.getElementById("Usuario").value = '';
+					document.getElementById("Senha1").value = '';
+					document.getElementById("Senha2").value = '';
+					location.href = 'login.html';					
+					<!--return cadastro;-->
+				}				
+			}
+			
+			<!--function download(text)
+			{
+				var pom = document.createElement('a');
+				pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + 
+
+				encodeURIComponent(text));
+				pom.setAttribute('download', "Cadastro.txt");
+
+				pom.style.display = 'none';
+				document.body.appendChild(pom);
+
+				pom.click();
+
+				document.body.removeChild(pom);
+			}
+			-->
+		  </script>
+		  
         </form>
         <br />
 		
