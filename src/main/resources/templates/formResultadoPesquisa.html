@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Market Tracker</title>
+
+    <!-- https://fonts.google.com/ -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
+      rel="stylesheet"
+    />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <!-- Cabeçalho -->
+    <header>
+      <nav
+        class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3"
+      >
+        <div class="container">
+          <a class="navbar-brand text-light" href="/"
+            >Market Tracker - Busca de produtos</a
+          >
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target=".navbar-collapse"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+          >
+            <div class="row justify-content-flex-end">
+              <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="/">Pagina inicial</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="/sobre">Sobre</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid body-content">
+      <main role="main" class="pb-3">
+        <div class="container">
+          <div style="text-align: center">
+            <h2>Listagem de Produtos</h2>
+          </div>
+          <br />
+          <br />
+
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>
+                  <a
+                    href="Pagina cadastrar produto . html"
+                    class="btn btn-secondary btn-lg"
+                    >Cadastrar produto</a
+                  >
+                </th>
+                <th>
+                  <!-- --------------Arrumar valor--------------------- -->
+                  <a href="/Tela_2" class="btn btn-secondary btn-lg"
+                    >Botão para qualquer coisa 2</a
+                  >
+                </th>
+                <th>
+                  <!-- --------------Arrumar valor--------------------- -->
+                  <a href="/Tela3" class="btn btn-secondary btn-lg"
+                    >Botão para qualquer coisa 3</a
+                  >
+                </th>
+                <th>
+                  <!-- --------------Arrumar valor--------------------- -->
+                  <a href="/Tela4" class="btn btn-secondary btn-lg"
+                    >Botão para qualquer coisa 4</a
+                  >
+                </th>
+              </tr>
+            </tbody>
+          </table>
+
+          <br />
+          <br />
+
+          <table class="table table-responsive table-striped">
+            <tbody>
+              <tr>
+                <th>Ações</th>
+                <th>ID</th>
+                <th>Produto</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Mercados</th>
+                <th>Comprar este Produto</th>
+              </tr>
+
+              <tr>
+                <td>
+                  <a href="/Prod/Edit?id=1"><img src="/img/edit.png" /></a>
+                  <a href="/Prod/Delete?id=1"><img src="/img/delete.png" /></a>
+                </td>
+                <td>1</td>
+                <td>Produto 1</td>
+                <td>Descrição 1</td>
+                <td>R$ 25,99</td>
+                <td>Loja 1</td>
+                <td>
+                  <a href="/Prod/Create?id=1">Comprar este produto</a>
+                  <!-- --------------Arrumar valor--------------------- -->
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <!-- --------------Arrumar valor--------------------- -->
+                  <a href="/Prod/Edit?id=2"><img src="/img/edit.png" /></a>
+                  <!-- --------------Arrumar valor--------------------- -->
+                  <a href="/Prod/Delete?id=2"><img src="/img/delete.png" /></a>
+                </td>
+                <td>2</td>
+                <td>Produto 2</td>
+                <td>Descrição 2</td>
+                <td>R$ 25,99</td>
+                <td>Loja 2</td>
+                <td>
+                  <a href="/Prod/Create?id=2">Comprar este produto</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <br />
+    <br />
+    <footer class="border-top footer text-muted">
+      <div class="container">
+        © 2022 - Market Tracker - <a href="/sobre">Mais</a>
+      </div>
+    </footer>
+  </body>
+</html>

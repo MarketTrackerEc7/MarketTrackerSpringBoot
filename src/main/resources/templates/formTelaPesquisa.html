@@ -27,7 +27,9 @@
         class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3"
       >
         <div class="container">
-          <a class="navbar-brand text-light" href="/">Market Tracker</a>
+          <a class="navbar-brand text-light" href="/"
+            >Market Tracker - Busca de produtos</a
+          >
 
           <button
             class="navbar-toggler"
@@ -52,14 +54,6 @@
                 <li class="nav-item">
                   <a class="nav-link text-light" href="/sobre">Sobre</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-light" href="/cadastrarUsuario"
-                    >Cadastre-se</a
-                  >
-                </li>
               </ul>
             </div>
           </div>
@@ -69,33 +63,40 @@
 
     <div class="container-fluid body-content">
       <div class="container">
-        <h2>Market Tracker</h2>
         <br />
-        <h6>
-          Deseja economia em sua lista de compras, sem abrir mão da qualidade de
-          suas marcas favoritas? Podemos facilitar a sua lista de compras de
-          forma rápida e prática, indicando os lugares com os menores preços e
-          mais próximos a você. Para isso, basta realizar o cadastro de sua
-          lista de produtos em nosso sistema. Experimente, cadastre-se no botão
-          abaixo.
-        </h6>
-
-        <!--<br />
-        <br />-->
+        <h3>Qual produto deseja pesquisar? insira abaixo:</h3>
         <br />
+        <form action="Pesquisar" method="get">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Usuário</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="usuario"
+              placeholder="digite a descrição do produto"
+            />
+          </div>
 
-        <form action="formLogin">
-          <button type="button" class="btn btn-secondary btn-lg">
-            <a class="nav-link tm-nav-link" href="/login"> Faça login </a>
+          <button
+            type="button"
+            onclick="redirectGetProduct();"
+            class="btn btn-secondary btn-lg"
+          >
+            <a class="nav-link tm-nav-link" href="/resultadosPesquisa">
+              Pesquisar
+            </a>
           </button>
+          <script language="Javascript">
+            function redirectGetProduct() {}
+          </script>
         </form>
-        <br />
-        <br />
         <br />
       </div>
     </div>
 
-    <!--<br /><br /><br /><br /><br /><br /><br /><br />-->
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     <footer class="border-top footer text-muted">
       <div class="container">
         © 2022 - Market Tracker - <a href="/sobre">Mais</a>

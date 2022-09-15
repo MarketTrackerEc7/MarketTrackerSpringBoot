@@ -82,7 +82,7 @@
               type="email"
               class="form-control"
               id="usuario"
-              placeholder="name"
+              placeholder="digite seu e-mail de acesso"
             />
           </div>
 
@@ -94,12 +94,12 @@
               type="password"
               class="form-control"
               id="senha"
-              placeholder="your password"
+              placeholder="sua senha"
             />
           </div>
 
           <button type="button" onclick="redirect();" class="btn btn-secondary btn-lg">
-            Fazer login
+            <a class="nav-link tm-nav-link" href="/pesquisarProduto"> Faça login </a>
           </button>
 		   <script language = "Javascript">
 			function redirect()
@@ -108,7 +108,7 @@
 				let senhaLogin = document.getElementById("senha").value;
 				if (usuarioLogin == "Admin" && senhaLogin == "Admin")
 				{
-					location.href = 'buscaProduto.html';
+					location.href = '/pesquisarProduto';
 				}
 				else if(usuarioLogin != "Admin")
 				{

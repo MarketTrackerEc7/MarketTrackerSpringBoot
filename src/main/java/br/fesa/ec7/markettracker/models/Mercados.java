@@ -1,10 +1,9 @@
 package br.fesa.ec7.markettracker.models;
 
-public class Loja {
+public class Mercados {
 	
 	private int id;
 	private String nome;
-	private String endereco;
 	
 	public int getId() {
 		return id;
@@ -17,12 +16,6 @@ public class Loja {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public String getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
 	}
 	
 }
