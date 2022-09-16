@@ -104,7 +104,8 @@
 
           <br />
           <br />
-
+          <!-------------------------------------- --------------Arrumar valor--------------------- -->
+          
           <table class="table table-responsive table-striped">
             <tbody>
               <tr>
@@ -117,35 +118,19 @@
                 <th>Comprar este Produto</th>
               </tr>
 
-              <tr>
+              <tr th:each = "produto : ${produtos}">
                 <td>
                   <a href="/Prod/Edit?id=1"><img src="/img/edit.png" /></a>
                   <a href="/Prod/Delete?id=1"><img src="/img/delete.png" /></a>
                 </td>
-                <td>1</td>
-                <td>Produto 1</td>
-                <td>Descrição 1</td>
-                <td>R$ 25,99</td>
-                <td>Loja 1</td>
+                <td th:text = "${produto.id}"></td>
+                <td th:text = "${produto.mercado.nome}"></td>
+                <td th:text = "${produto.produto.nome}"></td>
+                <td th:text = "${produto.preco}"></td>
+                <td th:text = "${produto.preco}"></td>
                 <td>
                   <a href="/Prod/Create?id=1">Comprar este produto</a>
                   <!-- --------------Arrumar valor--------------------- -->
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <!-- --------------Arrumar valor--------------------- -->
-                  <a href="/Prod/Edit?id=2"><img src="/img/edit.png" /></a>
-                  <!-- --------------Arrumar valor--------------------- -->
-                  <a href="/Prod/Delete?id=2"><img src="/img/delete.png" /></a>
-                </td>
-                <td>2</td>
-                <td>Produto 2</td>
-                <td>Descrição 2</td>
-                <td>R$ 25,99</td>
-                <td>Loja 2</td>
-                <td>
-                  <a href="/Prod/Create?id=2">Comprar este produto</a>
                 </td>
               </tr>
             </tbody>
@@ -153,6 +138,10 @@
         </div>
       </main>
     </div>
+    
+    <div class="container-fluid body-content">
+    	<span th:text="${produto}"></span>
+    </div>	
 
     <br />
     <br />
