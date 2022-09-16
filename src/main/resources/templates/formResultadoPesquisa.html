@@ -124,12 +124,12 @@
                   <a href="/Prod/Delete?id=1"><img src="/img/delete.png" /></a>
                 </td>
                 <td th:text = "${produto.id}"></td>
-                <td th:text = "${produto.mercado.nome}"></td>
+                <td th:text = "${produto.produto.nome}"></td>
                 <td th:text = "${produto.produto.nome}"></td>
                 <td th:text = "${produto.preco}"></td>
-                <td th:text = "${produto.preco}"></td>
+                <td th:text = "${produto.mercado.nome}"></td>
                 <td>
-                  <a href="/Prod/Create?id=1">Comprar este produto</a>
+                  <a href="https://www.google.com/search?q=${produto.mercado.nome}">Comprar este produto</a>
                   <!-- --------------Arrumar valor--------------------- -->
                 </td>
               </tr>

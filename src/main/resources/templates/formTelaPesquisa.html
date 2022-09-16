@@ -66,7 +66,7 @@
         <br />
         <h3>Qual produto deseja pesquisar? insira abaixo:</h3>
         <br />
-        <form action="Pesquisar" method="get">
+        <form th:action="@{/pesquisarProduto}" th:object="${produtoDigitado}" method="post">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"
               >Usuário</label
@@ -74,7 +74,7 @@
             <input
               type="text"
               class="form-control"
-              id="usuario"
+              id="descricaoProduto"
               placeholder="digite a descrição do produto"
             />
           </div>
@@ -84,17 +84,88 @@
             onclick="redirectGetProduct();"
             class="btn btn-secondary btn-lg"
           >
-            <a class="nav-link tm-nav-link" href="/resultadosPesquisa">
+            <a class="nav-link tm-nav-link" href="/pesquisarProduto">
               Pesquisar
             </a>
           </button>
-          <script language="Javascript">
-            function redirectGetProduct() {}
-          </script>
         </form>
-        <br />
       </div>
     </div>
+    
+    <!--
+    <table class="table">
+    
+    <tbody>
+      <tr>
+        <th>
+          <a
+            href="Pagina cadastrar produto . html"
+            class="btn btn-secondary btn-lg"
+            >Cadastrar produto</a
+          >
+        </th>
+        <th>
+
+          <a href="/Tela_2" class="btn btn-secondary btn-lg"
+            >Botão para qualquer coisa 2</a
+          >
+        </th>
+        <th>
+
+          <a href="/Tela3" class="btn btn-secondary btn-lg"
+            >Botão para qualquer coisa 3</a
+          >
+        </th>
+        <th>
+
+          <a href="/Tela4" class="btn btn-secondary btn-lg"
+            >Botão para qualquer coisa 4</a
+          >
+        </th>
+      </tr>
+    </tbody>
+   
+  </table>
+  
+  -->
+
+  <br />
+  <br />
+  <!-------------------------------------- --------------Arrumar valor--------------------- -->
+  <div class="container-fluid body-content">
+  <table class="table table-responsive table-striped">
+    <tbody>
+      <tr>
+        <th>Ações</th>
+        <th>ID</th>
+        <th>Produto</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Mercados</th>
+        <th>Comprar este Produto</th>
+      </tr>
+
+      <tr th:each = "produto : ${produtos}">
+        <td>
+          <a href="/Prod/Edit?id=1"><img src="/img/edit.png" /></a>
+          <a href="/Prod/Delete?id=1"><img src="/img/delete.png" /></a>
+        </td>
+        <td th:text = "${produto.id}"></td>
+        <td th:text = "${produto.produto.nome}"></td>
+        <td th:text = "${produto.produto.nome}"></td>
+        <td th:text = "${produto.preco}"></td>
+        <td th:text = "${produto.mercado.nome}"></td>
+        <td>
+          <a href="https://www.google.com/search?q=${produto.mercado.nome}">Comprar este produto</a>
+          <!-- --------------Arrumar valor--------------------- -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</main>
+</div>
+</div>
 
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     <footer class="border-top footer text-muted">
