@@ -66,7 +66,7 @@
         <br />
         <h3>Qual produto deseja pesquisar? insira abaixo:</h3>
         <br />
-        <form th:action="@{/pesquisarProduto}" th:object="${produtoDigitado}" method="post">
+        <form th:action="@{/pesquisarProduto}" method="post">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"
               >Usuário</label
@@ -153,7 +153,7 @@
         <td th:text = "${produto.id}"></td>
         <td th:text = "${produto.produto.nome}"></td>
         <td th:text = "${produto.produto.nome}"></td>
-        <td th:text = "${produto.preco}"></td>
+        <td th:text = "'R$ ' + ${produto.preco}"></td>
         <td th:text = "${produto.mercado.nome}"></td>
         <td>
           <a href="https://www.google.com/search?q=${produto.mercado.nome}">Comprar este produto</a>

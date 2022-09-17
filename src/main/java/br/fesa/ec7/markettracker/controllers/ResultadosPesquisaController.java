@@ -20,9 +20,9 @@ public class ResultadosPesquisaController {
 	@GetMapping("/")
 	public String home(ModelMap model) {
 		
-		ProdutoObtidoAPI[] produtos = produtoService.getProdutos();
+		//ProdutoObtidoAPI[] produtos = produtoService.getProdutos();
 		
-		model.addAttribute("produtos",produtos);
+		//model.addAttribute("produtos",produtos);
 		
 		return "formResultadoPesquisa";
 	}

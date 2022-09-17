@@ -10,13 +10,13 @@ import br.fesa.ec7.markettracker.models.ProdutoObtidoAPI;
 @Service
 public class ProdutoService {
 	
-	public ProdutoObtidoAPI[] getProdutos() {
+	public ProdutoObtidoAPI[] getProdutos(String produto) {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
 		restTemplate = restTemplateBuilder.build();
 		
-		ProdutoObtidoAPI[] produtos = restTemplate.getForObject("http://markettrackerec7-001-site1.etempurl.com/Api/BaseDeProdutos/BuscarProduto/coca",ProdutoObtidoAPI[].class);
+		ProdutoObtidoAPI[] produtos = restTemplate.getForObject("http://markettrackerec7-001-site1.etempurl.com/Api/BaseDeProdutos/BuscarProduto/" + produto,ProdutoObtidoAPI[].class);
 		
 		return produtos;
 	}
