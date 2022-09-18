@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Market Tracker</title>
+
+    <!-- https://fonts.google.com/ -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
+      rel="stylesheet"
+    />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <!-- Cabeçalho -->
+    <header>
+      <nav
+        class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3"
+      >
+        <div class="container">
+          <a class="navbar-brand text-light" href="/"
+            >Market Tracker</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target=".navbar-collapse"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+          >
+            <div class = "row justify-content-flex-end"> 
+			 <ul class="navbar-nav flex-grow-1">              
+			  <li class="nav-item">
+                <a class="nav-link text-light" href="/">Pagina inicial</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="/sobre">Sobre</a>
+              </li>			  
+			  <li class="nav-item">
+				<a class="nav-link text-light" href="/login">Login</a>
+              </li>		  
+             </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid body-content">
+      <div class="container">
+        <h2>Market Tracker - Cadastro</h2>
+
+        <br />
+        <br />
+        <br />
+	
+		<!--onsubmit="download(cadastro.txt, this['text'].value)"-->
+			
+        <form  action="cadastrarUsuario" method="post">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Usuário</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="Usuario"
+              placeholder="Seu usuário"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Senha</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="Senha1"
+              placeholder="Sua senha"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Confirmar senha </label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="Senha2"
+              placeholder="Confirme sua senha"
+            />
+          </div>
+          		
+		  <div class="mb-3"> 
+            <input type="checkbox" onclick="showPasswordCadastro()">Mostrar senha
+          </div>
+          
+          <button type="button" onclick="getInputValue();" class="btn btn-secondary btn-lg">
+            Cadastrar
+          </button>
+		  
+		  <script language = "Javascript">
+			function getInputValue()
+			{				
+			
+				let usuario = document.getElementById("Usuario").value;			
+				let senha1 = document.getElementById("Senha1").value;				
+				let senha2 = document.getElementById("Senha2").value;				
+				
+				if(usuario.trim() == "")
+				{
+					alert("Preencha o campo Usuário.");
+					document.getElementById("Usuario").value = '';
+				}
+				else if(senha1.trim() == "")
+				{
+					alert("Preencha o campo Senha.");
+					document.getElementById("Senha1").value = '';
+				}
+				else if(senha2.trim() == "")
+				{
+					alert("Preencha o campo Confirmar senha.");
+					document.getElementById("Senha2").value = '';
+				}
+				else if(senha1.trim() != senha2.trim())
+				{
+					alert("As senhas digitadas não coincidem.");
+					document.getElementById("Senha1").value = '';
+					document.getElementById("Senha2").value = '';
+				}
+				else
+				{
+					alert("cadastro realizado com sucesso.");
+					<!--let cadastro = (usuario + '|' + senha1).toString();-->
+					document.getElementById("Usuario").value = '';
+					document.getElementById("Senha1").value = '';
+					document.getElementById("Senha2").value = '';
+					location.href = "/login";					
+					<!--return cadastro;-->
+				}				
+			}
+			
+			function showPasswordCadastro() 
+			{
+				var senha1 = document.getElementById("Senha1");
+				var senha2 = document.getElementById("Senha2");
+				if (senha1.type === "password" && senha2.type === "password") 
+				{
+					senha1.type = "text";
+					senha2.type = "text";
+				} 
+				else 
+				{
+					senha1.type = "password";
+					senha2.type = "password";
+				}
+			}
+		  </script>
+		  
+        </form>
+        <br />
+		
+        <div class="text-left">                  
+		  <p>Já tem uma conta? <a href="/login">Login</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <br /><br /><br /><br /><br /><br /><br /><br />
+    <footer class="border-top footer text-muted">
+      <div class="container">
+        © 2022 - Market Tracker - <a href="/sobre">Mais</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Market Tracker</title>
+
+    <!-- https://fonts.google.com/ -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
+      rel="stylesheet"
+    />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <!-- Cabeçalho -->
+    <header>
+      <nav
+        class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3"
+      >
+        <div class="container">
+          <a class="navbar-brand text-light" href="index.html"
+            >Market Tracker</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target=".navbar-collapse"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+          >
+            <div class = "row justify-content-flex-end"> 
+			 <ul class="navbar-nav flex-grow-1">	
+			  <li class="label">
+				<a class="nav-link text-light">Usuário logado: Admin</a>
+              </li>				 
+			  <li class="nav-item">
+				<a class="nav-link text-light" href="login.html">Log out</a>
+              </li>			  		  
+             </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid body-content">
+      <div class="container">
+        <h2>Market Tracker - Busque um produto</h2>
+
+        <br />
+        <br />
+        <br />
+
+        <form action="Login" method="post">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">
+			Produto
+			</label>
+            <input
+              type="text"
+              class="form-control"
+              id="produto"
+              placeholder="Nome do produto"
+            />
+          </div>
+		<!--
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">
+			Senha
+			</label>
+            <input
+              type="password"
+              class="form-control"
+              id="senha"
+              placeholder="your password"
+            />
+          </div>
+		-->
+          <button type="button" onclick="buscaProduto();" class="btn btn-secondary btn-lg">
+            Buscar
+          </button>
+		   <script language = "Javascript">
+			function buscaProduto()
+			{
+				let nomeProduto = document.getElementById("produto").value;
+				
+				if (nomeProduto == "")
+				{	
+					alert("Nome do produto não fornecido");
+				}				
+				
+			}
+		   </script>
+		  
+        </form>
+        <br />
+
+        <!--<form action="cadastroUsuario" method="post">
+          <button type="button" class="btn btn-secondary btn-lg">
+            Cadastrar-se
+          </button>-->		
+        </form>
+      </div>
+    </div>
+
+    <br /><br /><br /><br /><br /><br /><br /><br />
+    <footer class="border-top footer text-muted">
+      <div class="container">
+        © 2022 - Market Tracker - <a href="/sobre.html">Privacy</a>
+      </div>
+    </footer>
+  </body>
+</html>
