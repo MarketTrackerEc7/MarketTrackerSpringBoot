@@ -34,10 +34,16 @@ public class PesquisaController {
 	public String form(@ModelAttribute Texto t, ModelMap model) {
 		
 		String produtoDigitado = t.getTexto();
-		ProdutoObtidoAPI[] produtos = produtoService.getProdutos(produtoDigitado);
-    	model.addAttribute("produtos",produtos);
 		
-		return "formTelaPesquisa";
+		if(produtoDigitado.length() > 0) {
+			ProdutoObtidoAPI[] produtos = produtoService.getProdutos(produtoDigitado);
+	    	model.addAttribute("produtos",produtos);
+			
+			return "formTelaPesquisa";
+		}else {
+			return "formTelaPesquisa";
+		}
+
 	}
 	
 	
