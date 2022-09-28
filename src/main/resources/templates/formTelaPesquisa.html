@@ -118,7 +118,7 @@
                 <td th:text="${produto.id}"></td>
                 <td th:text="${produto.produto.nome}"></td>
                 <td th:text="${produto.produto.nome}"></td>
-                <td th:text="'R$ ' + ${produto.preco}"></td>
+                <td th:text="'R$ ' + ${#numbers.formatDecimal(produto.preco, 0, 'POINT', 2, 'COMMA')}"></td>
                 <td th:text="${produto.mercado.nome}"></td>
                 <td>
                   <a
