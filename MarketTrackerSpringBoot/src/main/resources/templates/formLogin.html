@@ -72,27 +72,21 @@
 
         <form action="Login" method="post">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Usuário</label
-            >
+            <label class="form-label">Usuário</label>
             <input
               type="text"
               class="form-control"
               id="usuario"
-              placeholder="Usuario"
-            />
+              placeholder="Digite seu nome de usuário..."/>
           </div>
 
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Senha</label
-            >
+            <label for="exampleFormControlInput1" class="form-label">Senha</label>
             <input
               type="password"
               class="form-control"
               id="senha"
-              placeholder="Senha"
-            />
+              placeholder="Digite sua senha..."/>
           </div>
           <div class="mb-3"> 
             <input type="checkbox" onclick="showPasswordLogin()">Mostrar senha
@@ -106,25 +100,21 @@
 			{
 				let usuarioLogin = document.getElementById("usuario").value;
 				let senhaLogin = document.getElementById("senha").value;
+				
 				if(usuarioLogin.trim() == "")
 				{
-					alert("Preencha o campo Usuário.");
+					alert("Nome de usuário não preenchido!");
 				}
-				else if(usuarioLogin.trim() != "Admin")
+				else if(senhaLogin.trim() == "")
 				{
-					alert("Verifique se o usuário foi digitado corretamente.");
+					alert("Senha não preenchida!");
 				}
-				if(senhaLogin.trim() == "")
-				{
-					alert("Preencha o campo Senha.");
-				}
-				else if(senhaLogin.trim() != "Admin")
-				{
-					alert("Senha não existe.");
-				}
-				if (usuarioLogin.trim() == "Admin" && senhaLogin.trim() == "Admin")				
+				else if (usuarioLogin.trim() == "Admin" && senhaLogin.trim() == "Admin")				
 				{					
 					location.href = "/pesquisarProduto";
+				}
+				else {
+					alert("Usuário e/ou senha inválidos!");
 				}
 			}
 			

@@ -17,35 +17,37 @@ import br.fesa.ec7.markettracker.services.ProdutoService;
 
 @Controller
 public class PesquisaController {
-	
+
 	@Autowired
 	ProdutoService produtoService;
-	//@RequestMapping("/pesquisarProduto")
-	
+	// @RequestMapping("/pesquisarProduto")
+
 	@GetMapping("/pesquisarProduto")
-    public String form(final Model model) {
-		
+	public String form(final Model model) {
+
 		model.addAttribute(new Texto());
 
-        return "formTelaPesquisa";
-    }
-	
+		return "formTelaPesquisa";
+	}
+
 	@PostMapping("/listarProdutos")
 	public String form(@ModelAttribute Texto t, ModelMap model) {
-		
+
 		String produtoDigitado = t.getTexto();
-		
-		if(produtoDigitado.length() > 0) {
+
+		if (produtoDigitado.length() > 0) {
 			ProdutoObtidoAPI[] produtos = produtoService.getProdutos(produtoDigitado);
-	    	model.addAttribute("produtos",produtos);
-			
-			return "formTelaPesquisa";
-		}else {
-			return "formTelaPesquisa";
+
+			if (produtos != null) {
+				model.addAttribute("produtos", produtos);
+
+				return "formTelaPesquisa";
+			} else {
+				model.addAttribute("ErrorMessage", "Infelizmente não foi possível encontrar o produto. Estamos trabalhando nisso, por favor, tente outros produtos!");
+				return "formTelaPesquisa";
+			}
 		}
-
+		
+		return "formTelaPesquisa";
 	}
-	
-	
-
 }

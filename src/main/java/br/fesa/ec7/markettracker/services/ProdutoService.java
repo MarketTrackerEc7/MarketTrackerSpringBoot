@@ -16,7 +16,14 @@ public class ProdutoService {
 		RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
 		restTemplate = restTemplateBuilder.build();
 		
-		ProdutoObtidoAPI[] produtos = restTemplate.getForObject("http://markettrackerec7-001-site1.etempurl.com/Api/BaseDeProdutos/BuscarProduto/" + produto,ProdutoObtidoAPI[].class);
+		ProdutoObtidoAPI[] produtos = null;
+		
+		try {
+			produtos = restTemplate.getForObject("http://markettrackerec7-001-site1.etempurl.com/Api/BaseDeProdutos/BuscarProduto/" + produto,ProdutoObtidoAPI[].class);
+		}
+		catch(Exception ex) {
+			
+		}
 		
 		return produtos;
 	}

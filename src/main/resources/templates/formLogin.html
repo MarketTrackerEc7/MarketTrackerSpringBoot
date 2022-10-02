@@ -74,49 +74,47 @@
         <br />
 
         <form action="Login" method="post">
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Usuário</label
-            >
-            <input
-              type="email"
-              class="form-control"
-              id="usuario"
-              placeholder="digite seu e-mail de acesso"
-            />
-          </div>
+        <div class="mb-3">
+        <label class="form-label">Usuário</label>
+        <input
+          type="text"
+          class="form-control"
+          id="usuario"
+          placeholder="Digite seu nome de usuário..."/>
+      </div>
 
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"
-              >Senha</label
-            >
-            <input
-              type="password"
-              class="form-control"
-              id="senha"
-              placeholder="sua senha"
-            />
-          </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Senha</label>
+        <input
+          type="password"
+          class="form-control"
+          id="senha"
+          placeholder="Digite sua senha..."/>
+      </div>
 
           <button type="button" onclick="redirect();" class="btn btn-secondary btn-lg">
-            <a class="nav-link tm-nav-link" href="/pesquisarProduto"> Faça login </a>
+            <a class="nav-link tm-nav-link"> Faça login </a>
           </button>
 		   <script language = "Javascript">
-			function redirect()
+		   function redirect()
 			{
 				let usuarioLogin = document.getElementById("usuario").value;
 				let senhaLogin = document.getElementById("senha").value;
-				if (usuarioLogin == "Admin" && senhaLogin == "Admin")
+				
+				if(usuarioLogin.trim() == "")
 				{
-					location.href = '/pesquisarProduto';
+					alert("Nome de usuário não preenchido!");
 				}
-				else if(usuarioLogin != "Admin")
+				else if(senhaLogin.trim() == "")
 				{
-					alert("usuário não existe");
+					alert("Senha não preenchida!");
 				}
-				else if(senhaLogin != "Admin")
-				{
-					alert("senha não existe");
+				else if (usuarioLogin.trim() == "Admin" && senhaLogin.trim() == "Admin")				
+				{					
+					location.href = "/pesquisarProduto";
+				}
+				else {
+					alert("Usuário e/ou senha inválidos!");
 				}
 			}
 		   </script>
