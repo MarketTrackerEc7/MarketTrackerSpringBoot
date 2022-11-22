@@ -20,13 +20,19 @@ public class PesquisaController {
 
 	@Autowired
 	ProdutoService produtoService;
-	// @RequestMapping("/pesquisarProduto")
+	//@RequestMapping("/pesquisarProduto")
 
-	@GetMapping("/pesquisarProduto")
+	@GetMapping("/selecaoBusca")
 	public String form(final Model model) {
 
 		model.addAttribute(new Texto());
+		return "selecaoTipoDeBusca";
+	}
+	
+	@GetMapping("/buscarProduto")
+	public String buscarProduto(final Model model) {
 
+		model.addAttribute(new Texto());
 		return "formTelaPesquisa";
 	}
 

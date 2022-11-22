@@ -71,66 +71,44 @@
     <div class="container-fluid body-content">
       <div class="container">
         <br />
-        <h3>Qual produto deseja pesquisar?</h3>
-        <br />
-        <form
-          class="container"
-          th:action="@{/listarProdutos}"
-          th:object="${texto}"
-          method="post"
-        >
-          <div class="mb-3">
-            <input
-              type="text"
-              name="texto"
-              th:field="*{texto}"
-              class="form-control"
-              id="descricaoProduto"
-              placeholder="Digite o nome/categoria do produto desejado..."
-            />
-          </div>
-          <br />
-          <div>
-            <button type="submit" class="btn btn-secondary btn-lg">
-              Pesquisar
-            </button>
-          </div>
-        </form>
+        <h2>Você precisa de um produto específico, ou deseja montar um carrinho?</h2>
       </div>
     </div>
 
-    <br />
-    <br />
     <div class="container-fluid body-content">
       <main role="main" class="pb-3">
-        <div class="container">
-          <table class="table table-responsive table-striped">
-            <tbody>
-              <tr>
-                <th>Produto</th>
-                <th>Preço</th>
-                <th>Mercado</th>
-                <th>Endereço</th>
-                <th>Distância</th>
-                <th>Comprar este Produto</th>
-              </tr>
-
-              <tr th:each="produto : ${produtos}">
-                <td th:text="${produto.produto}"></td>
-                <td th:text="'R$ ' + ${#numbers.formatDecimal(produto.preco, 0, 'POINT', 2, 'COMMA')}"></td>
-                <td th:text="${produto.mercado}"></td>
-                <td th:text="${produto.enderecO_MERCADO}"></td>
-                <td th:text="${#numbers.formatDecimal(produto.distancia, 0, 'POINT', 1, 'COMMA')} + ' km'"></td>
-                <td>
-                	<a th:href="@{'https://www.google.com/search?q=' + ${produto.produto} + ' ' + ${produto.mercado}}" th:target="_blank">Comprar este produto</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="row mt-4">
+      	<div class="col">
+      		<div class="row justity-content-center">
+      			<a class="btn btn-light" href="buscarProduto">
+      				<img src="/materialize/img/shopping-bag.png" height="500" width="500">
+      			</a>
+      		</div>
+      		<div class="row mt-4" style="text-align: center;">
+  				<h3>Produto específico</h3>
+  			</div>
         </div>
+        <div class="col">
+        	<div class="row">
+        		<a class="btn btn-light" onclick="development();">
+        			<img src="/materialize/img/shopping-cart.png" height="500" width="500">
+        		</a>
+        		
+        		<script language = "Javascript">
+        		    function development(){
+        		 	Swal.fire('Em desenvolvimento','Essa feature ainda está em desenvolvimento, aguarde as próximas atualizações =)','info');
+        		    }
+        		</script>
+        	</div>
+        	<div class="row mt-4" style="text-align: center;">
+    			<h3>Carrinho de produtos</h3>
+    		</div>
+         </div>
+       </div>
       </main>
     </div>
-
+    
+ 
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     <footer class="border-top footer text-muted">
       <div class="container">

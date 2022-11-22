@@ -19,7 +19,8 @@ public class ProdutoService {
 		ProdutoObtidoAPI[] produtos = null;
 		
 		try {
-			produtos = restTemplate.getForObject("http://markettrackerec7-001-site1.etempurl.com/Api/BaseDeProdutos/BuscarProduto/" + produto,ProdutoObtidoAPI[].class);
+			//produtos = restTemplate.getForObject("http://markettrackerec7-001-site1.etempurl.com/Api/BaseDeProdutos/BuscarProduto/" + produto,ProdutoObtidoAPI[].class);
+			produtos = restTemplate.getForObject("http://markettracker-001-site1.btempurl.com/Api/BaseDeProdutos/BuscarProdutoByTextoAndLatLong/" + produto + "/-23.74012891225548/-46.583675091845784",ProdutoObtidoAPI[].class);
 		}
 		catch(Exception ex) {
 			

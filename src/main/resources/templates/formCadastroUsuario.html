@@ -69,7 +69,7 @@
 	
 		<!--onsubmit="download(cadastro.txt, this['text'].value)"-->
 			
-        <form  action="cadastrarUsuario" method="post">
+		<!--<form  action="cadastrarUsuario" method="post">-->
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Usuário</label>
             <input
@@ -129,16 +129,16 @@
           </button>
 		  
 		  <script language = "Javascript">
-			function getInputValue()
+			async function getInputValue()
 			{				
 			
-				let usuario = document.getElementById("Usuario").value;
+				let nome = document.getElementById("Usuario").value;
 				let email = document.getElementById("Email").value;
 				let ConfirmacaoEmail = document.getElementById("ConfirmacaoEmail").value;	
 				let senha = document.getElementById("Senha").value;				
 				let ConfirmacaoSenha = document.getElementById("ConfirmacaoSenha").value;				
 				
-				if(usuario == "")
+				if(nome == "")
 				{
 					Swal.fire('Falha no cadastro','Usuário não preenchido! Por favor, digite um nome de usuário.','error');
 				}
@@ -163,8 +163,25 @@
 				}
 				else
 				{
-					Swal.fire('Cadastro realizado!','Cadastro realizado com sucesso! Por favor, volte para a tela principal e realize o login.','success');
-					window.location.href = "/";
+					const urls = 'http://localhost:8009/cadastrarUsuario/' + nome + '/' + email + '/' + senha;
+					
+					let id = 0;
+					
+					//const object = { id, nome, email, senha };
+
+					//const myInitPost = { method: "post", body: JSON.stringify(object), headers: { "Content-Type": "application/json", }, };
+					
+					 const myInitGet = { method: 'POST', headers: { "Content-Type": "application/json", }, };
+					 
+					//const dados = await fetch(urls, myInitPost);
+				    //const elens = await dados.json();
+				    
+					 const dados = await fetch(urls, myInitGet);
+					 const elens = await dados.json();
+					    
+					Swal.fire('Cadastro realizado!','Cadastro realizado com sucesso! Por favor, volte para a tela principal e realize o login.','success').then(function() {
+					    window.location = "/";
+					});
 				}				
 			}
 			
@@ -186,7 +203,7 @@
 			-->
 		  </script>
 		  
-        </form>
+        <!--</form>-->
         <br />
 		
         <div class="text-left">                  

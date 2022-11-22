@@ -17,8 +17,8 @@ public class MarkettrackerApplication {
 		
 		try {
 			ObjectMapper om = new ObjectMapper();
-			ProdutoObtidoAPI[] produtos = om.readValue(Utilitarios.jsonTeste, ProdutoObtidoAPI[].class);
-			System.out.println(produtos);
+			//ProdutoObtidoAPI[] produtos = om.readValue(Utilitarios.jsonTeste, ProdutoObtidoAPI[].class);
+			//System.out.println(produtos);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

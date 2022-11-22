@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,6 +19,15 @@
          crossorigin="anonymous"
          />
    </head>
+   
+   	<div th:if="${ErrorMessage != null}">
+   		<input type="hidden" id="errorMessage" th:value="${ErrorMessage}"/>
+   		<script language="Javascript">
+   			var message = document.getElementById("errorMessage").value;
+   			Swal.fire('Falha no login', message,'error');
+   		</script>
+	</div>
+
    <body>
       <!-- Cabeçalho -->
       <header>
@@ -47,7 +56,7 @@
                            <a class="nav-link text-light" href="/">Pagina inicial</a>
                            </li>-->
                         <li class="nav-item">
-                           <a class="nav-link text-light" href="/cadastrarUsuario"
+                           <a class="nav-link text-light" href="/CadastrarNovoUsuario"
                               >Cadastre-se</a
                               >
                         </li>
@@ -79,26 +88,26 @@
             <br />
             <div class="row justify-content-center">
                <div class="col-8 bg-light p-4 rounded-lg elevation-3">
-                  <form action="Login" method="post">
+                  <form th:action="@{/login}" th:object="${usuario}" id="loginForm" method="post">
                      <div class="form-group">
                         <label class="text-dark">E-mail ou nome de usuário</label> <br />
-                        <input type="text" class="form-control mt-2" id="usuario" placeholder="Digite seu e-mail ou nome de usuário..."/>
+                        <input type="text" class="form-control mt-2" id="nome" th:field="*{nome}" placeholder="Digite seu e-mail ou nome de usuário..."/>
                      </div>
                      <div class="form-group">
                         <label class="text-dark">Senha</label> <br />
-                        <input type="password" class="form-control mt-2" id="senha" placeholder="Digite sua senha..."/>                           
+                        <input type="password" class="form-control mt-2" id="senha" th:field="*{senha}" placeholder="Digite sua senha..."/>                           
                      </div>
                      <div class="text-left">
-                        <p class="mt-2">Não tem uma conta? <a href="/cadastrarUsuario">Cadastre-se</a>.</p>
+                        <p class="mt-2">Não tem uma conta? <a href="/CadastrarNovoUsuario">Cadastre-se</a>.</p>
                      </div>
                      <div class="text-center mt-3">
                         <button type="button" onclick="redirect();" class="btn btn-secondary btn-lg">
-                        <a class="nav-link tm-nav-link"> Login </a>
+                        	<a class="nav-link tm-nav-link"> Login </a>
                         </button>
                         <script language = "Javascript">
                            function redirect(){
                            	
-                           let usuarioLogin = document.getElementById("usuario").value;
+                           let usuarioLogin = document.getElementById("nome").value;
                            let senhaLogin = document.getElementById("senha").value;
                            
                            if(usuarioLogin.trim() == "") 
@@ -106,9 +115,9 @@
                            else if(senhaLogin.trim() == "")
                         	   Swal.fire('Falha no login','Senha não preenchida!','error');
                            else if (usuarioLogin.trim() == "Admin" && senhaLogin.trim() == "Admin")							
-                           	location.href = "/pesquisarProduto";
-                           else 
-                        	   Swal.fire('Falha no login','Usuário e/ou senha inválidos!','error');
+                        	   location.href = "/pesquisarProduto";
+                           else
+                        	   document.getElementById('loginForm').submit();
                            }
                         </script>
                      </div>
@@ -116,7 +125,6 @@
                </div>
             </div>
             <br />
-            </form>
             <br />
             <br />
             <br />
