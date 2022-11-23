@@ -70,45 +70,39 @@
      
     <div class="container-fluid body-content">
       <div class="container">
-        <br />
-        <h2>Você precisa de um produto específico, ou deseja montar um carrinho?</h2>
+      	<a class="btn btn-info mb-4" href="http://localhost:8009/selecaoBusca">
+      		Voltar para o menu anterior
+		</a>
+
+        <h3>Resultados da busca:</h3>
+
       </div>
     </div>
 
     <div class="container-fluid body-content">
       <main role="main" class="pb-3">
-      <div class="row mt-4">
-      	<div class="col">
-      		<div class="row justity-content-center">
-      			<a class="btn btn-light" href="buscarProduto">
-      				<img src="/materialize/img/shopping-bag.png" height="500" width="500">
-      			</a>
-      		</div>
-      		<div class="row mt-4" style="text-align: center;">
-  				<h3>Produto específico</h3>
-  			</div>
+        <div class="container">
+          <table class="table table-responsive table-striped">
+            <tbody>
+              <tr>
+                <th>Mercado</th>
+                <th>Valor total</th>
+                <th>Endereço</th>
+                <th>Distância</th>
+              </tr>
+
+              <tr th:each="produto : ${produtos}">
+                <td th:text="${produto.mercado}"></td>
+                <td th:text="'R$ ' + ${#numbers.formatDecimal(produto.valoR_TOTAL, 0, 'POINT', 2, 'COMMA')}"></td>
+                <td th:text="${produto.enderecO_MERCADO}"></td>
+                <td th:text="${#numbers.formatDecimal(produto.distancia, 0, 'POINT', 1, 'COMMA')} + ' km'"></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="col">
-        	<div class="row">
-        		<a class="btn btn-light" href="escolherProdutos" >
-        			<img src="/materialize/img/shopping-cart.png" height="500" width="500">
-        		</a>
-        		
-        		<script language = "Javascript">
-        		    function development(){
-        		 	Swal.fire('Em desenvolvimento','Essa feature ainda está em desenvolvimento, aguarde as próximas atualizações =)','info');
-        		    }
-        		</script>
-        	</div>
-        	<div class="row mt-4" style="text-align: center;">
-    			<h3>Carrinho de produtos</h3>
-    		</div>
-         </div>
-       </div>
       </main>
     </div>
-    
- 
+
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     <footer class="border-top footer text-muted">
       <div class="container">
