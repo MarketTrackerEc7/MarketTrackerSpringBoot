@@ -2,15 +2,13 @@ package br.fesa.ec7.markettracker.models;
 
 import java.util.ArrayList;
 
-public class ResultadoMercado {
+public class ResultadoBuscaMercado {
+	
 	 private String mercado;
 	 private String enderecO_MERCADO;
 	 private float distancia;
 	 private float valoR_TOTAL;
 	 ArrayList < Object > produtoS_DISPONIVEIS = new ArrayList < Object > ();
-
-
-	 // Getter Methods 
 
 	 public String getMercado() {
 	  return mercado;
@@ -27,8 +25,6 @@ public class ResultadoMercado {
 	 public float getValoR_TOTAL() {
 	  return valoR_TOTAL;
 	 }
-
-	 // Setter Methods 
 
 	 public void setMercado(String mercado) {
 	  this.mercado = mercado;

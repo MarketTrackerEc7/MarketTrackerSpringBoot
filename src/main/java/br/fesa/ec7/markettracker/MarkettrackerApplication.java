@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.fesa.ec7.markettracker.models.ProdutoObtidoAPI;
+import br.fesa.ec7.markettracker.models.ProdutoMercadoValor;
 import br.fesa.ec7.markettracker.utils.Utilitarios;
 
 @SpringBootApplication

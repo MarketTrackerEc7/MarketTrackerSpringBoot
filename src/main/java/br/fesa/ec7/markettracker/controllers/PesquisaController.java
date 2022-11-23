@@ -14,11 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.fesa.ec7.markettracker.models.Produto;
-import br.fesa.ec7.markettracker.models.ProdutoAPI;
-import br.fesa.ec7.markettracker.models.ProdutoObtidoAPI;
-import br.fesa.ec7.markettracker.models.ResultadoMercado;
+import br.fesa.ec7.markettracker.models.ProdutoMercadoValor;
+import br.fesa.ec7.markettracker.models.ResultadoBuscaMercado;
 import br.fesa.ec7.markettracker.models.Texto;
-import br.fesa.ec7.markettracker.models.Usuario;
 import br.fesa.ec7.markettracker.services.ProdutoService;
 
 @Controller
@@ -45,7 +43,7 @@ public class PesquisaController {
 	@GetMapping("/escolherProdutos")
 	public String escolherProdutos(final Model model) {
 
-		ProdutoAPI[] produtos = produtoService.getListaProdutos();
+		Produto[] produtos = produtoService.getListaProdutos();
 		
 		if (produtos != null) {
 			model.addAttribute("produtos", produtos);
@@ -63,7 +61,7 @@ public class PesquisaController {
 		String produtoDigitado = t.getTexto();
 
 		if (produtoDigitado.length() > 0) {
-			ProdutoObtidoAPI[] produtos = produtoService.getProdutos(produtoDigitado);
+			ProdutoMercadoValor[] produtos = produtoService.getProdutos(produtoDigitado);
 
 			if (produtos != null) {
 				model.addAttribute("produtos", produtos);
@@ -83,7 +81,7 @@ public class PesquisaController {
 						   ModelMap model,
                            HttpSession session) {	 
 
-			ResultadoMercado[] produtos = produtoService.getListaResultadoMercados(idsSelecionados);
+			ResultadoBuscaMercado[] produtos = produtoService.getListaResultadoMercados(idsSelecionados);
 
 			if (produtos != null) {
 				model.addAttribute("produtos", produtos);
